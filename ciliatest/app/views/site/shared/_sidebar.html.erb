@@ -2,12 +2,8 @@
 <div class="bg-light border-right" id="sidebar-wrapper">
   <div class="sidebar-heading">Start Bootstrap </div>
   <div class="list-group list-group-flush">
-    <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-    <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
-    <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-    <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-    <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-    <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+    <%= link_to "Home", site_home_path, :action => "index", :class => "list-group-item list-group-item-action bg-light" %>
+    <%= link_to "Clientes", site_clients_path, :action => "index", :class => "list-group-item list-group-item-action bg-light" %>
   </div>
 </div>
 <!-- /#sidebar-wrapper -->

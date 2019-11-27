@@ -5,6 +5,11 @@ Ciliatest::Application.routes.draw do
 
   devise_for :clients
 
+  namespace :site do
+    get 'home', to: 'home#index' ##quando for ../home acessa /home/index
+    get 'clients', to: 'clients#index' ##quando for ../clients acessa /clients/index
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

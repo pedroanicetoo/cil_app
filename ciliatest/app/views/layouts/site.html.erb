@@ -8,6 +8,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= yield %>
+  <div class="d-flex" id="wrapper">
+  <%= stylesheet_link_tag    "site/home", :media => "all" %>
+  <%= javascript_include_tag "site/home" %>
+  <% if client_signed_in? %>
+    <%= render partial: 'site/shared/sidebar', locals: {action: "Editar Administrador"} %>
+  <% end  %>
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <%= render partial: 'site/shared/navigation', locals: {action: "Editar Administrador"} %>
+      <div class="container-fluid">
+        <%= yield %>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+  </div>
 </body>
 </html>
