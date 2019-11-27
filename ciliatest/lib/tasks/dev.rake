@@ -10,6 +10,7 @@ namespace :dev do
       puts %x(rake db:migrate)
       puts %x(rake db:seed)
       puts %x(rake dev:generate_clients)
+      puts %x(rake dev:generate_products)
 
     puts "DEV SETUP...[OK]"
   end
@@ -19,7 +20,7 @@ namespace :dev do
   desc "Create Clients fakers"
   task :generate_clients => :environment do
 
-    puts "Cadastrando Administradores Fakers..."
+    puts "Create Clients fakers..."
 
       10.times do
         Client.create(
@@ -35,6 +36,26 @@ namespace :dev do
   end
 
   ##############################################################
+
+  desc "Create Product fakers"
+  task :generate_products => :environment do
+
+    puts "Create Products fakers..."
+
+      100.times do
+        Product.create(
+          name: ['A', 'B', 'C'].sample,
+          description: LeroleroGenerator.paragraph(Random.rand(3)),
+          price: "#{Random.rand(500)},#{Random.rand(99)}"
+          )
+      end
+
+    puts "Create Products fakers...[OK]"
+  end
+
+  ##############################################################
+
+
 
 end
 
