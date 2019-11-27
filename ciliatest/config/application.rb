@@ -23,6 +23,16 @@ module Ciliatest
     # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 
     # Activate observers that should always be running.
+
+    # assets precompilation
+    config.assets.precompile += ['site/home.js']
+    config.assets.precompile += ['application.js']
+    config.assets.precompile += ['application.css']
+    config.assets.precompile += ['site/home.css']
+
+
+
+
     # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
 
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.

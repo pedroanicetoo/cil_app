@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+puts "Register Client Default..."
+
+     Client.create(
+      name: 'Admin',
+      email: 'admin@admin.com',
+      password: '123',
+      password_confirmation: '123',
+      born: Faker::Date.birthday(18, 65)
+      )
+
+puts "Register Client Default...[OK]"

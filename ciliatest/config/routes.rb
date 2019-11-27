@@ -1,7 +1,7 @@
 Ciliatest::Application.routes.draw do
   devise_for :clients
 
-  root :to => 'home#index'
+  root :to => 'site/home#index'
 
   devise_for :clients
 
