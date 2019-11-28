@@ -1,6 +1,7 @@
 class Site::HomeController < SiteController
   before_filter :authenticate_client!
   def index
-    @home = "SEJA BEM VINDO !!!"
+    @distinct_names = Product.select_distinct_name
   end
+
 end

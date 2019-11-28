@@ -1,1 +1,22 @@
-<h1><%= @home %></h1>
+<h1 style="text-align:center">Veja alguns dados Interessantes</h1>
+<h2>Tabela dos produtos</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nomes</th>
+      <th scope="col">Quantidades</th>
+      <th scope="col">Preço</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @distinct_names.each do |d| %>
+      <tr>
+        <th scope="row"><%= d.name %></th>
+        <td><%= Product.select_all_products_name(d.name).count %></td>
+        <td><%= humanized_money_with_symbol d.price %></td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>

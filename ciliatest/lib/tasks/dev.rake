@@ -40,17 +40,52 @@ namespace :dev do
   desc "Create Product fakers"
   task :generate_products => :environment do
 
-    puts "Create Products fakers..."
+
+    puts "Create 3 Products Default..."
+        x = Product.new
+        x.name = "A"
+        x.description = "produto A"
+        x.price = "2,20"
+
+        y = Product.new
+        y.name = "B"
+        y.description = "produto B"
+        y.price = "3,30"
+
+        z = Product.new
+        z.name = "C"
+        z.description = "produto C"
+        z.price = "4,40"
+
+    puts "Create 3 Products Default...[OK]"
+
+
+    puts "Create Products[A, B, C] fakers..."
 
       100.times do
+        choose = [x, y, z].sample
         Product.create(
-          name: ['A', 'B', 'C'].sample,
-          description: LeroleroGenerator.paragraph(Random.rand(3)),
+          name: choose.name,
+          description: choose.description,
+          price: choose.price
+          )
+      end
+
+    puts "Create Products[A, B, C] fakers...[OK]"
+
+    puts "Create Other Products fakers..."
+
+      10.times do
+        Product.create(
+          name: Faker::Dota.item,
+          description: Faker::MichaelScott.quote,
           price: "#{Random.rand(500)},#{Random.rand(99)}"
           )
       end
 
-    puts "Create Products fakers...[OK]"
+    puts "Create Other Products fakers...[OK]"
+
+
   end
 
   ##############################################################
