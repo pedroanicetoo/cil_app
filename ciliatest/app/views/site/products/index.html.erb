@@ -1,10 +1,13 @@
 <h1 style="text-align:center">Produtos</h1>
 <h2>Tabela dos produtos</h2>
-<div class="form-group">
+<div class="form-group" style="float:left;width: auto">
   <%= link_to "Novo Produto",new_site_product_path, :action => "index", :class => 'btn btn-success' %>
 </div>
 <div class="form-group" style="float:right">
-  <input type="text" placeholder="Procurar...">
+  <%= form_tag(site_products_path, :method => 'get') do %>
+    <%= text_field_tag(:term, params[:term]) %>
+    <%= submit_tag ("Search"), :name => nil %>
+  <% end %>
 </div>
 <table class="table table-striped">
   <thead>

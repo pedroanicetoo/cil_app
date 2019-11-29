@@ -14,7 +14,7 @@ class Product < ActiveRecord::Base
   #contando quanto produtos temos com o mesmo nome
   scope :count_all_products_name, -> ( name ) { where( name: name ).count }
 
-
+  scope :by_name, -> ( name ) { where("name LIKE ?", "%#{name}%" ) }
 
   # example
   # scope :descending_order, -> (quantity = 10) { limit(quantity).order(created_at: :desc) }

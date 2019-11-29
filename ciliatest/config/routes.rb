@@ -8,6 +8,7 @@ Ciliatest::Application.routes.draw do
   namespace :site do
     get 'home', to: 'home#index' ##quando for ../home acessa /home/index
     get 'clients', to: 'clients#index' ##quando for ../clients acessa /clients/index
+    resources :clients
     get 'products', to: 'products#index' ##quando for ../clients acessa /clients/index
     resources :products
   end

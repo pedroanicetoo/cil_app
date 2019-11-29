@@ -3,7 +3,9 @@ class Site::ProductsController < SiteController
   before_filter :set_product, :only => [:edit, :update, :destroy]
   def index
     # @products = Product.descending_order(10)
-    @products = Product.paginate(page: params[:page], per_page: 10)
+
+    @products = Product.paginate(:page => params[:page], :per_page => 10).by_name(params[:term])
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @products }
