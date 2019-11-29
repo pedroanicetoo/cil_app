@@ -25,6 +25,10 @@ gem 'strong_parameters', '~> 0.2.3'
 gem 'money-rails', '~>1.12'
 #Easy upload management for ActiveRecord
 gem 'paperclip', '~> 4.3', '>= 4.3.6'
+## Gemfile for Rails 3+, Sinatra, and Merb
+gem 'will_paginate', '~> 3.1.0'
+#A simple Rails wrapper for Google Material Icons
+gem 'material_icons'
 
 gem 'sqlite3', '~> 1.3', '< 1.4'
 

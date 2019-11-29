@@ -1,0 +1,51 @@
+<% if @product.errors.any? %>
+  <div class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <ul>
+      <% @product.errors.full_messages.each do |messages| %>
+        <li><%= messages %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="container-fluid">
+  <%= form_for([:site, @product], html: { multipart: true }) do |f| %>
+    <div class="row">
+      <div class="col-xs-3">
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, :class => "form-control", :placeholder => "Nome" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-3">
+        <div class="form-group">
+          <%= f.label :price %>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><%= @product.price.currency.symbol %></span>
+            </div>
+            <%= f.text_field :price, :class => "form-control" %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="form-group">
+          <%= f.label :description %>
+          <%= f.text_area :description, :class => "form-control", rows: 10 %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <%= submit_tag "Enviar", :class => "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

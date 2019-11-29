@@ -1,0 +1,25 @@
+'pt-BR':
+  helpers:
+  activerecord:
+    models:
+      client:
+        one: Cliente
+        other: Clientes
+      product:
+        one: Produto
+        other: Produtos
+    attributes:
+      client:
+        id: Código
+        created_at: Criado em
+        updated_at: Atualizado em
+        email: E-mail
+        password: Senha
+        password_confirmation: Confirmação de senha
+      product:
+        id: Código
+        created_at: Criado em
+        updated_at: Atualizado em
+        name: Nome
+        description: Descrição
+        price: Preço

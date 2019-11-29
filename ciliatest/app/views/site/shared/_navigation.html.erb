@@ -10,7 +10,7 @@
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
       <% if client_signed_in? %>
         <li class="nav-item active">
-            <%= link_to(current_client.email, '#', method: :delete, :class => "nav-link") %>
+            <%= link_to(current_client.email, '#', :class => "nav-link") %>
         </li>
         <li class="nav-item active">
             <%= link_to('Logout', destroy_client_session_path, method: :delete, :class => "nav-link") %>

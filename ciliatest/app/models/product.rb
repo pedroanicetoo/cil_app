@@ -3,6 +3,8 @@ class Product < ActiveRecord::Base
   validates :price, numericality: { greater_than: 0 }
 
   #scopes
+  #Listando x Produtos em ordem de criação
+  scope :descending_order, -> (quantity = 10) { limit(quantity).order(created_at: :desc) }
   #Listando produtos do mais barato até o mais caro
   scope :descending_order_by_price, -> { order('id ASC').reorder('price_cents ASC') }
   #Retorna os objetos com nomes(categorias distintas)

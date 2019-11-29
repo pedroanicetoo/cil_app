@@ -1,6 +1,14 @@
 <% if notice %>
-  <%= javascript_tag "$.notify( { message: '#{notice}' }, { type: 'success', placement: { from: 'top', align: 'center' }});" %>
+  <script>
+    $(document).ready(function() {
+      $.notify( { message: '<%= notice %>' }, { type: 'success', placement: { from: 'top', align: 'center' }});
+    });
+  </script>
 <% end %>
 <% if alert %>
-  <%= javascript_tag "$.notify( { message: '#{alert}' }, { type: 'danger', placement: { from: 'top', align: 'center' }});" %>
+  <script>
+    $(document).ready(function() {
+      $.notify( { message: '<%= alert %>' }, { type: 'danger', placement: { from: 'top', align: 'center' }});
+    });
+  </script>
 <% end %>
