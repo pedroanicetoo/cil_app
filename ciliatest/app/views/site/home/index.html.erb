@@ -28,26 +28,28 @@
     <div class="row">
       <div class="col-md-12">
         <div class="row products-show">
-          <% @products.each do |p| %>
+          <% @products.each do |product| %>
             <div class="col-sm-4 col-lg-4 col-md-4">
               <div class="thumbnail">
-                <img src="http://placehold.it/320x150" alt="">
+                <%= image_tag product.picture(:medium) %>
                 <div class="caption">
                   <div class="price-cont">
-                    <b><%= humanized_money_with_symbol p.price %></b>
+                    <b><%= humanized_money_with_symbol product.price %></b>
                   </div>
                   <div class="title-cont">
-                    <b><%= p.name %></b>
+                    <b><%= product.name %></b>
                   </div>
                   <div class="actions-cont">
                     <div class="buttons">
-                      <a href="#" class="btn btn-info btn-sm">Info</a>
                       <a href="#" class="btn btn-success btn-sm">Comprar</a>
+                      <%= button_tag "Info", :class => 'btn btn-info btn-sm', :data => { :toggle => "modal", :target => "#modal-#{product.id}" } %>
+                      <%#= link_to site_home_path "Comprar", :class => "btn" %>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            <%= render partial: 'site/home/shared/info-modal', locals: { id: "#{product.id}", name: "#{product.name}", description: "#{product.description}", price: "#{product.price}", picture: "#{product.picture(:large)}" } %>
           <% end %>
         </div>
       </div>

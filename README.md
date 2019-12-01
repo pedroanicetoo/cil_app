@@ -12,6 +12,7 @@ Links importantes de algumas documentações
 sudo apt-get update
 sudo apt-get install imagemagick
 ```
+
 #### API ROR LINK
 [api guide ruby on rails](https://guides.rubyonrails.org)
 ##### Documentação de algumas gems
@@ -28,3 +29,8 @@ sudo apt-get install imagemagick
 [faker](https://github.com/faker-ruby/faker) - Facilita na criação de tasks
 [lerolero_generator](https://github.com/jacksonpires/lerolero_generator) -Facilita na criação de tasks
 
+
+
+
+
+obs: Lembrar de dar permissão (sudo chmod 777) a pasta de imagens do projeto para rodar algumas tasks

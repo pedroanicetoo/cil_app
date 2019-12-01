@@ -1,5 +1,4 @@
 class Client < ActiveRecord::Base
-
   #validates
   validates :name, :email, presence:true
 

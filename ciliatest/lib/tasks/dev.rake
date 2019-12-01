@@ -46,8 +46,11 @@ namespace :dev do
       100.times do
         key = Faker::Dota.item
         price = "#{Random.rand(500)},#{Random.rand(99)}"
+        description = Faker::MichaelScott.quote
+        picture = File.new(Rails.root.join('public', 'templates', 'image-for-products', "#{Random.rand(9)}.jpg"), 'r')
+        y = [price, description, picture]
         unless x.include? key
-          x.store(key, price)
+          x.store(key, y)
         end
       end
 
@@ -63,8 +66,9 @@ namespace :dev do
         value = x.keys.sample
         Product.create(
           name: value,
-          description: "default",
-          price: x[value]
+          price: x[value][0],
+          description: x[value][1],
+          picture: x[value][2]
           )
       end
 

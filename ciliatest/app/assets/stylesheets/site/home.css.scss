@@ -178,6 +178,7 @@ footer {
 
   .thumbnail {
       display: block;
+      min-height: 290px;
       padding: 4px;
       margin-bottom: 20px;
       line-height: 1.42857143;
@@ -224,6 +225,45 @@ footer {
             }
           }
       }
+  }
+
+  .modal-product {
+    .modal-body {
+      .image-cont {
+        float: left;
+        width: 100%;
+        img {
+          display: block;
+          margin: 0 auto;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 3px;
+          background-color: #cccccc75;
+        }
+      }
+      .price-cont {
+        float: left;
+        width: 100%;
+        text-align: center;
+        margin: 15px 0 10px 0;
+        b {
+          padding: 5px;
+          border: 1px solid #ccc;
+          margin: 10px 0;
+          border-radius: 3px;
+          background: #ccc;
+        }
+      }
+      .description-cont {
+        text-align: center;
+        float: left;
+        width: 100%;
+        p {
+          margin: 0;
+          line-height: normal;
+        }
+      }
+    }
   }
 
   .paginate-row {

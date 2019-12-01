@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20191201025035) do
+ActiveRecord::Schema.define(:version => 20191201171629) do
 
   create_table "clients", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20191201025035) do
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer  "order_id"
     t.integer  "sign_in_count",          :default => 0,  :null => false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -33,9 +34,20 @@ ActiveRecord::Schema.define(:version => 20191201025035) do
   add_index "clients", ["email"], :name => "index_clients_on_email", :unique => true
   add_index "clients", ["reset_password_token"], :name => "index_clients_on_reset_password_token", :unique => true
 
+  create_table "orders", :force => true do |t|
+    t.integer  "client_id"
+    t.integer  "product_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "orders", ["client_id"], :name => "index_orders_on_client_id"
+  add_index "orders", ["product_id"], :name => "index_orders_on_product_id"
+
   create_table "products", :force => true do |t|
     t.string   "name"
     t.string   "description"
+    t.integer  "order_id"
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
     t.integer  "price_cents",          :default => 0

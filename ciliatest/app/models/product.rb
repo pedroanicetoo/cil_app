@@ -2,6 +2,10 @@ class Product < ActiveRecord::Base
   validates :name, presence: true
   validates :price, numericality: { greater_than: 0 }
 
+  #paperclip
+   has_attached_file :picture, styles: { large: "432x240#", medium: "320x150#", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/
+
   #scopes
   #Listando x Produtos em ordem de criação
   scope :descending_order, -> (quantity = 10) { limit(quantity).order(created_at: :desc) }
@@ -22,5 +26,9 @@ class Product < ActiveRecord::Base
   # gem money-rails
   monetize :price_cents
 
-  attr_accessible :description, :name, :price, :price_cents
+  attr_accessible :description,
+                  :name,
+                  :price,
+                  :price_cents,
+                  :picture
 end

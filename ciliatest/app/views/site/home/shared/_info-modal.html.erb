@@ -1,0 +1,26 @@
+<!-- Modal -->
+<%= content_tag :div, :id => "modal-#{id}", :class => "modal-product modal fade" do %>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><b><%= name %></b></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="image-cont">
+          <%= image_tag picture %>
+        </div>
+        <div class="price-cont"><b><%= humanized_money_with_symbol price %></b></div>
+        <div class="description-cont">
+          <p> <%= description %> </p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary">Salvar mudanças</button>
+      </div>
+    </div>
+  </div>
+<% end %>
