@@ -5,3 +5,11 @@ $("#menu-toggle").click(function(e) {
   e.preventDefault();
   $("#wrapper").toggleClass("toggled");
 });
+$(function () {
+  $("#shop_car").click(function(e) {
+    $("#shop_cont").addClass('show');
+  });
+  $("#close_cont").click(function(e) {
+    $("#shop_cont").removeClass('show');
+  });
+})

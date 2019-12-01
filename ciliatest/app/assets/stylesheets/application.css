@@ -13,3 +13,39 @@
  *= require bootstrap.min
  *= require material_icons
  */
+body {
+  background: #f8f8f8;
+}
+
+#login .panel {
+  margin-bottom: 20px;
+  float: left;
+  width: auto;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 3px;
+}
+
+#login .panel-title {
+  background: #e1e1e1;
+  font-size: 16px;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+#login .panel-body {
+  float: left;
+  width: 100%;
+  padding: 10px;
+}
+
+.btn-success.btn-block:hover {
+  background: #3bc146;
+  border-color: #3bc146;
+}
+
+.btn-success.btn-block {
+  background-color: #57cb61;
+  border-color: #57cb61;
+}

@@ -29,6 +29,8 @@ module Ciliatest
     config.assets.precompile += ['application.js']
     config.assets.precompile += ['application.css']
     config.assets.precompile += ['site/home.css']
+    config.assets.precompile += ['site/products.css']
+    config.assets.precompile += ['site/clients.css']
 
 
 

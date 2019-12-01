@@ -7,8 +7,6 @@ gem 'rails', '3.2.11'
 gem 'rails', '3.2.11'
 #Repository for collecting Locale data for Ruby on Rails I18n as well as other interesting, Rails related I18n stuff http://rails-i18n.org
 gem 'rails-i18n', '~> 3.0' # For 3.x
-#Rails gem of the Bootstrap based admin theme SB Admin 2. http://dreamingechoes.github.io/boots…
-gem 'bootstrap_sb_admin_base_v2'
 #Manage Procfile-based applications http://ddollar.github.com/foreman
 gem 'foreman'
 #Flexible authentication solution for Rails with Warden. http://blog.plataformatec.com.br/tag/…

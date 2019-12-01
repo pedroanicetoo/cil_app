@@ -1,1 +1,81 @@
-<h1 style="text-align:center">Veja alguns dados Interessantes</h1>
+<div id="homepage">
+  <!-- Page Content -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-11">
+        <div class="filter-container">
+          <%= form_tag(site_home_path, :method => 'get') do %>
+            <%= text_field_tag(:term, params[:term], :class => "search", :placeholder => "Procurar...") %>
+            <%= submit_tag ("Procurar"), :name => nil, :class => 'search-btn' %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <div class="order-cont">
+          <button id="shop_car"><i class="material-icons">add_shopping_cart</i></button>
+          <div id="shop_cont">
+            <div class="title-cont">
+              <button id="close_cont"><i class="material-icons">close</i></button>
+            </div>
+            <div class="body-cont">
+              <p>teste</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row products-show">
+          <% @products.each do |p| %>
+            <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+                <img src="http://placehold.it/320x150" alt="">
+                <div class="caption">
+                  <div class="price-cont">
+                    <b><%= humanized_money_with_symbol p.price %></b>
+                  </div>
+                  <div class="title-cont">
+                    <b><%= p.name %></b>
+                  </div>
+                  <div class="actions-cont">
+                    <div class="buttons">
+                      <a href="#" class="btn btn-info btn-sm">Info</a>
+                      <a href="#" class="btn btn-success btn-sm">Comprar</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <center class="paginate-row" >
+          <%= will_paginate (@products), :page_links => true, :previous_label => 'Anterior', :next_label => 'Próximo', :inner_window => 1, :outer_window => 0 %>
+        </center>
+      </div>
+    </div>
+
+  </div>
+  <!-- /.container -->
+
+  <div class="container">
+    <hr>
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Your Website 2019</p>
+            </div>
+        </div>
+    </footer>
+
+  </div>
+  <!-- /.container -->
+
+</div>

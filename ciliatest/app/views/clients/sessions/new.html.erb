@@ -1,26 +1,34 @@
-<h2>Log in</h2>
+    <div id="login" class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4" style="margin: 0 auto">
+                <div class="login-panel panel panel-default" style="margin-top: 25%">
+                    <div class="panel-heading">
+                      <h3 class="panel-title">Please Sign In</h3>
+                    </div>
+                    <div class="panel-body">
+                        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                            <fieldset>
+                                <div class="form-group">
+                                    <%= f.email_field :email, :class => "form-control", :placeholder => "Email", autofocus: true %>
+                                </div>
+                                <div class="form-group">
+                                  <%= f.password_field :password, :class => "form-control", :placeholder => "Password", :type => "password", :value => "", autocomplete: "off" %>
+                                </div>
+                                <% if devise_mapping.rememberable? -%>
+                                <div class="checkbox">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+                                    <label>
+                                      <%= f.check_box :remember_me %>Remember Me
+                                    </label>
+                                </div>
+                                <% end -%>
+                                <!-- Change this to a button or input when using this as a form -->
+                                <%= f.submit "Acessar", :class => "btn btn-lg btn-success btn-block" %>
+                            </fieldset>
+                        <% end %>
+                        <%= render "clients/shared/links" %>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "clients/shared/links" %>

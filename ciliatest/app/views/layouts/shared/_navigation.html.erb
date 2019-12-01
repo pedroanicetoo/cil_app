@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+
+  <button id="menu-toggle"><i class="material-icons">list</i></button>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  </button>
+
+  <div id="info-site">
+    <% if client_signed_in? %>
+        <%= link_to('Logout', destroy_client_session_path, method: :delete, :class => "nav-link") %>
+        <%= link_to(current_client.email, '#', :class => "nav-name") %>
+      <% else %>
+        <%= link_to('Login', new_client_session_path, :class => "nav-link") %>
+      <% end %>
+  </div>
+</nav>

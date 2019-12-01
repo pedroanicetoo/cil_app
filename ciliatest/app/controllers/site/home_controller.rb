@@ -1,7 +1,15 @@
 class Site::HomeController < SiteController
   before_filter :authenticate_client!
   def index
-    @distinct_names = Product.select_distinct_name
+    # @products = Product.descending_order(10)
+    @products = Product.paginate(:page => params[:page], :per_page => 6).by_name(params[:term])
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @products }
+    end
+
+
   end
 
 end
