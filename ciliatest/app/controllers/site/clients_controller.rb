@@ -4,5 +4,4 @@ class Site::ClientsController < SiteController
     @clients = Client.all
   end
 
-
 end

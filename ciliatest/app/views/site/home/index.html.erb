@@ -12,7 +12,7 @@
       </div>
       <div class="col-md-1">
         <div class="order-cont">
-          <button id="shop_car"><i class="material-icons">add_shopping_cart</i></button>
+          <button id="shop_car"><i class="material-icons">shopping_cart</i></button>
           <%= render partial: 'site/home/shared/car-list' %>
         </div>
       </div>
@@ -34,8 +34,12 @@
                   </div>
                   <div class="actions-cont">
                     <div class="buttons">
-                      <%= link_to "comprar", new_site_order_path, :class => "btn btn-sm btn-success" %>
-                      <%= button_tag "Info", :class => 'btn btn-info btn-sm', :data => { :toggle => "modal", :target => "#modal-#{product.id}" } %>
+                      <%= link_to "#", :class => "btn btn-sm btn-success add" do %>
+                        <i class="material-icons">add_shopping_cart</i>
+                      <% end %>
+                      <%= link_to "#", :class => 'btn btn-info btn-sm', :data => { :toggle => "modal", :target => "#modal-#{product.id}" } do %>
+                        <i class="material-icons">search</i>
+                      <% end %>
                       <%#= link_to site_home_path "Comprar", :class => "btn" %>
                     </div>
                   </div>
