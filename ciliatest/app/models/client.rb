@@ -1,4 +1,7 @@
 class Client < ActiveRecord::Base
+
+  has_many :orders
+  has_many :products, :through => :orders
   #validates
   validates :name, :email, presence:true
 

@@ -8,8 +8,6 @@ class Site::HomeController < SiteController
       format.html # index.html.erb
       format.json { render json: @products }
     end
-
-
   end
 
 end

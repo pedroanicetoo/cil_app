@@ -1,4 +1,7 @@
 class Product < ActiveRecord::Base
+
+  belongs_to :order
+
   validates :name, presence: true
   validates :price, numericality: { greater_than: 0 }
 
