@@ -1,7 +1,9 @@
 class Client < ActiveRecord::Base
 
+  has_one :cart
   has_many :orders
   has_many :products, :through => :orders
+
   #validates
   validates :name, :email, presence:true
 
@@ -13,5 +15,8 @@ class Client < ActiveRecord::Base
                   :password,
                   :password_confirmation,
                   :name,
-                  :born
+                  :born,
+                  :cart,
+                  :orders,
+                  :products_attributes
 end

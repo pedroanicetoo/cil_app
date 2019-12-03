@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20191202015343) do
+ActiveRecord::Schema.define(:version => 20191203033016) do
+
+  create_table "carts", :force => true do |t|
+    t.integer  "client_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "carts", ["client_id"], :name => "index_carts_on_client_id"
 
   create_table "clients", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -34,7 +42,6 @@ ActiveRecord::Schema.define(:version => 20191202015343) do
   add_index "clients", ["reset_password_token"], :name => "index_clients_on_reset_password_token", :unique => true
 
   create_table "orders", :force => true do |t|
-    t.integer  "client_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -42,14 +49,14 @@ ActiveRecord::Schema.define(:version => 20191202015343) do
   create_table "products", :force => true do |t|
     t.string   "name"
     t.string   "description"
-    t.integer  "order_id"
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
     t.integer  "price_cents",          :default => 0
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.boolean  "sold",                 :default => false
   end
 
 end
