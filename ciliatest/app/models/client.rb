@@ -16,7 +16,7 @@ class Client < ActiveRecord::Base
                   :password_confirmation,
                   :name,
                   :born,
-                  :cart,
-                  :orders,
+                  :cart_attributes,
+                  :orders_attributes,
                   :products_attributes
 end

@@ -1,8 +1,9 @@
 class Cart < ActiveRecord::Base
 
   belongs_to :client
-  has_many :products
+  has_many :demands
+  has_many :products, through: :demands
 
   attr_accessible :products_attributes,
-                  :client
+                  :client_attributes
 end

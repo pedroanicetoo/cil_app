@@ -1,3 +1,4 @@
+
 <div id="homepage">
   <!-- Page Content -->
   <div class="container-fluid">
@@ -12,8 +13,14 @@
       </div>
       <div class="col-md-1">
         <div class="order-cont">
-          <button id="shop_car"><i class="material-icons">shopping_cart</i></button>
-          <%= render partial: 'site/home/shared/car-list' %>
+          <% unless current_client.cart.present? %>
+            <%= link_to new_site_home_cart_path, :class => "shop_car" do %>
+              <i class="material-icons">shopping_cart</i>
+            <% end %>
+          <% else %>
+            <button class="shop_car"><i class="material-icons">shopping_cart</i></button>
+            <%= render partial: 'site/home/shared/car-list' %>
+          <% end %>
         </div>
       </div>
     </div>

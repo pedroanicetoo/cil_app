@@ -12,6 +12,9 @@ Ciliatest::Application.routes.draw do
     resources :clients
     get 'products', to: 'products#index' ##quando for ../clients acessa /clients/index
     resources :products
+    namespace :home do
+      resources :carts, only: [:index, :show, :new, :create, :edit, :update]
+    end
   end
 
   # The priority is based upon order of creation:

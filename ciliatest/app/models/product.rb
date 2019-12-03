@@ -1,7 +1,8 @@
 class Product < ActiveRecord::Base
 
-  has_many :carts
   has_one :order
+  has_many :demands
+  has_many :carts, through: :demands
 
   validates :name, presence: true
   validates :price, numericality: { greater_than: 0 }
@@ -34,5 +35,7 @@ class Product < ActiveRecord::Base
                   :name,
                   :price,
                   :price_cents,
-                  :picture
+                  :picture,
+                  :carts_attributes,
+                  :orders_attributes
 end

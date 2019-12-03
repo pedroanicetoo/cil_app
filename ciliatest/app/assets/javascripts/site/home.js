@@ -6,7 +6,7 @@ $("#menu-toggle").click(function(e) {
   $("#wrapper").toggleClass("toggled");
 });
 $(function () {
-  $("#shop_car").click(function(e) {
+  $(".shop_car").click(function(e) {
     $("#shop_cont").addClass('show');
   });
   $("#close_cont").click(function(e) {

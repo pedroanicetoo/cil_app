@@ -3,6 +3,8 @@
     <button id="close_cont"><i class="material-icons">close</i></button>
   </div>
   <div class="body-cont">
-    <p>teste</p>
+    <% if current_client.cart.present? %>
+      <b>Carrinho de compras:</b>
+    <% end %>
   </div>
 </div>
