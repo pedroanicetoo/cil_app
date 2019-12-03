@@ -7,6 +7,10 @@ class Client < ActiveRecord::Base
   #validates
   validates :name, :email, presence:true
 
+
+  #scopes
+
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

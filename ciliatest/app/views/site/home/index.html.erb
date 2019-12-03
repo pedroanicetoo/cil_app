@@ -18,7 +18,7 @@
               <i class="material-icons">shopping_cart</i>
             <% end %>
           <% else %>
-            <button class="shop_car"><i class="material-icons">shopping_cart</i></button>
+            <button class="shop_car"><i class="material-icons">shopping_cart</i><b><%= @cart_count %></b></button>
             <%= render partial: 'site/home/shared/car-list' %>
           <% end %>
         </div>
@@ -41,9 +41,15 @@
                   </div>
                   <div class="actions-cont">
                     <div class="buttons">
-                      <%= link_to "#", :class => "btn btn-sm btn-success add" do %>
-                        <i class="material-icons">add_shopping_cart</i>
-                      <% end %>
+                     <% unless current_client.cart.products.include? product  %>
+                       <%= link_to "#", :class => "btn btn-sm btn-success add" do %>
+                         <i class="material-icons">add_shopping_cart</i>
+                       <% end %>
+                       <% else %>
+                       <%= link_to "#", :class => "btn btn-sm btn-danger remove" do %>
+                         <i class="material-icons">remove_shopping_cart</i>
+                       <% end %>
+                    <% end %>
                       <%= link_to "#", :class => 'btn btn-info btn-sm', :data => { :toggle => "modal", :target => "#modal-#{product.id}" } do %>
                         <i class="material-icons">search</i>
                       <% end %>
@@ -76,7 +82,7 @@
     <footer>
         <div class="row">
             <div class="col-lg-12">
-                <p>Copyright &copy; Your Website 2019</p>
+                <p>Copyright &copy; Your Website 2019<%= @pedro %></p>
             </div>
         </div>
     </footer>

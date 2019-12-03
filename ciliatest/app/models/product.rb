@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
 
-  has_one :order
+  belongs_to :order
   has_many :demands
   has_many :carts, through: :demands
 

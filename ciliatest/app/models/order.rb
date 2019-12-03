@@ -1,6 +1,6 @@
 class Order < ActiveRecord::Base
 
-  has_one :client
+  belongs_to :client
   has_many :products
 
   attr_accessible :client_attributes,

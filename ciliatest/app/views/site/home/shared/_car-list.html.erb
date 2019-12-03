@@ -6,5 +6,9 @@
     <% if current_client.cart.present? %>
       <b>Carrinho de compras:</b>
     <% end %>
+    <% @products_on_cart.each do |p| %>
+    <br>
+      <b><%= p.name %></b>
+    <% end %>
   </div>
 </div>

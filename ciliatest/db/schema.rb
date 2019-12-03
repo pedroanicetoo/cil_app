@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20191203055149) do
   add_index "demands", ["product_id"], :name => "index_demands_on_product_id"
 
   create_table "orders", :force => true do |t|
+    t.integer  "client_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -59,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20191203055149) do
   create_table "products", :force => true do |t|
     t.string   "name"
     t.string   "description"
+    t.integer  "order_id"
     t.datetime "created_at",                              :null => false
     t.datetime "updated_at",                              :null => false
     t.integer  "price_cents",          :default => 0

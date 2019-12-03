@@ -3,7 +3,7 @@ Ciliatest::Application.routes.draw do
 
   root :to => 'site/home#index'
 
-  devise_for :clients
+  devise_for :clients, controllers: { sessions: 'clients/sessions' }
 
   namespace :site do
     get 'home', to: 'home#index' ##quando for ../home acessa /home/index
