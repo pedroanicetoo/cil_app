@@ -5,10 +5,11 @@
   <div class="body-cont">
     <% if current_client.cart.present? %>
       <b>Carrinho de compras:</b>
+      <% @products_on_cart.each do |p| %>
+      <br>
+        <b><%= p.name %></b>
+      <% end %>
     <% end %>
-    <% @products_on_cart.each do |p| %>
-    <br>
-      <b><%= p.name %></b>
-    <% end %>
+
   </div>
 </div>

@@ -1,10 +1,8 @@
 class Site::ProductsController < SiteController
-  before_filter :authenticate_client!
   before_filter :set_product, :only => [:edit, :update, :destroy]
   def index
     # @products = Product.descending_order(10)
-
-    @products = Product.paginate(:page => params[:page], :per_page => 10).by_name(params[:term])
+    @products = products_show(10, params[:term])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -55,6 +53,11 @@ class Site::ProductsController < SiteController
   # Use callbacks to share common setup or constraints between actions.
   def set_product
     @product = Product.find(params[:id])
+  end
+
+  def products_show(page_qtd, params_search)
+    @show = Product.paginate(:page => params[:page], :per_page => page_qtd).
+            find_by_name(params_search).valid_products
   end
 
 end

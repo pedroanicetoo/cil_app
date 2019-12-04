@@ -1,9 +1,8 @@
 Ciliatest::Application.routes.draw do
-  devise_for :clients
-
-  root :to => 'site/home#index'
 
   devise_for :clients, controllers: { sessions: 'clients/sessions' }
+
+  root :to => 'site/home#index'
 
   namespace :site do
     get 'home', to: 'home#index' ##quando for ../home acessa /home/index
@@ -14,6 +13,7 @@ Ciliatest::Application.routes.draw do
     resources :products
     namespace :home do
       resources :carts, only: [:index, :show, :new, :create, :edit, :update]
+      resources :demands, only: [:edit, :update, :destroy]
     end
   end
 

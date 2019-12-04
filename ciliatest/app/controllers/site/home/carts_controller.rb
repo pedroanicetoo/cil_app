@@ -6,13 +6,7 @@ class Site::Home::CartsController < Site::HomeController
   end
 
   def new
-    @cart = Cart.new(params[:cart])
-    if @cart.save
-      current_client.cart = @cart
-      redirect_to site_home_path, notice: "Carrinho do (#{@current_client.name}) foi cadastrado com sucesso"
-    else
-      render :new
-    end
+
   end
 
 

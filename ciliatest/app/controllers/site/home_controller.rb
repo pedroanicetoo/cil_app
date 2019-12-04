@@ -1,8 +1,9 @@
 class Site::HomeController < SiteController
-  before_filter :authenticate_client!
+
   def index
     # @products = Product.descending_order(10)
-    @products = Product.paginate(:page => params[:page], :per_page => 6).by_name(params[:term])
+    @products = products_show(6, params[:term])
+
 
     unless current_client.cart.nil?
       @cart_count = (current_client.cart.demands).count
@@ -15,17 +16,10 @@ class Site::HomeController < SiteController
     end
   end
 
-
   private
-
-  def create_cart
-    @cart = Cart.new(params[:cart])
-    if @cart.save
-      current_client.cart = @cart
-      redirect_to site_home_path, notice: "Carrinho do (#{@current_client.name}) foi cadastrado com sucesso"
-    else
-      render :new
+    def products_show(page_qtd, params_search)
+      @show = Product.paginate(:page => params[:page], :per_page => page_qtd)
+                     .find_by_name(params_search).valid_products
     end
-  end
 
 end

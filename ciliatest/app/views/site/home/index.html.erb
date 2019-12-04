@@ -13,14 +13,8 @@
       </div>
       <div class="col-md-1">
         <div class="order-cont">
-          <% unless current_client.cart.present? %>
-            <%= link_to new_site_home_cart_path, :class => "shop_car" do %>
-              <i class="material-icons">shopping_cart</i>
-            <% end %>
-          <% else %>
-            <button class="shop_car"><i class="material-icons">shopping_cart</i><b><%= @cart_count %></b></button>
-            <%= render partial: 'site/home/shared/car-list' %>
-          <% end %>
+          <button class="shop_car"><i class="material-icons">shopping_cart</i><b><%= @cart_count %></b></button>
+          <%= render partial: 'site/home/shared/car-list' %>
         </div>
       </div>
     </div>
@@ -41,15 +35,16 @@
                   </div>
                   <div class="actions-cont">
                     <div class="buttons">
-                     <% unless current_client.cart.products.include? product  %>
-                       <%= link_to "#", :class => "btn btn-sm btn-success add" do %>
-                         <i class="material-icons">add_shopping_cart</i>
-                       <% end %>
-                       <% else %>
-                       <%= link_to "#", :class => "btn btn-sm btn-danger remove" do %>
-                         <i class="material-icons">remove_shopping_cart</i>
-                       <% end %>
+                    <% current_client.cart.present? && unless current_client.cart.products.include? product  %>
+                      <%= link_to edit_site_home_demand_path(product), :class => "btn btn-sm btn-success add" do %>
+                        <i class="material-icons">add_shopping_cart</i>
+                      <% end %>
+                      <% else %>
+                      <%= link_to site_home_demand_path(product), method: :delete, data: { confirm: "Tem certeza?" }, :class => "btn btn-danger btn-sm remove" do %>
+                        <i class="material-icons">remove_shopping_cart</i>
+                      <% end %>
                     <% end %>
+
                       <%= link_to "#", :class => 'btn btn-info btn-sm', :data => { :toggle => "modal", :target => "#modal-#{product.id}" } do %>
                         <i class="material-icons">search</i>
                       <% end %>
