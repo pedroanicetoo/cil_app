@@ -122,36 +122,53 @@ footer {
   .order-cont {
     float: right;
     position: relative;
-    margin: 0 18px 0 7px;
+    margin: 5px 18px 0 7px;
     .shop_car {
       float: right;
+      background: none;
+      border: none;
+      box-shadow: none;
+      float: left;
+      padding: 0;
+      width: 50px;
       i {
         float: left;
+      }
+      b {
+        float: left;
+      }
+      &:focus {
+        outline: none;
       }
     }
     #shop_cont {
       display: none;
       position: absolute;
-      top: 40px;
+      top: 30px;
       z-index: 10;
-      right: 0px;
-      width: 300px;
+      right: 20px;
+      min-width: 350px;
       height: auto;
-      border: 1px solid white;
+      border: 1px solid #ccc;
       border-radius: 3px;
-      background: white;
+      background: #ccc;
       &.show {
         display: block;
       }
       .title-cont {
         padding: 10px;
         position: relative;
+        padding: 10px 0px 10px 10px;
+        text-align: center;
+        b {
+          font-weight: normal;
+        }
         #close_cont {
           position: absolute;
           border: none;
           background: none;
-          top: 0;
-          color: red;
+          top: 3px;
+          color: black;
           z-index: 1;
           cursor: pointer;
           padding: 5px;
@@ -160,6 +177,51 @@ footer {
             font-size: 16px;
             float: left;
           }
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+      .body-cont {
+        float: left;
+        width: 100%;
+        padding: 0 10px;
+        border-top: 1px solid darken(#ccc, 10%);
+        .cart-item {
+          float: left;
+          width: 100%;
+          padding: 10px 10px 10px 0;
+          position: relative;
+          b {
+            float: left;
+          }
+          small {
+            float: right;
+            padding-right: 20px;
+            margin-top: 5px;
+          }
+          .remove {
+            position: absolute;
+            right: 0;
+            top: 18px;
+            background: none;
+            border: none;
+            padding: 0;
+            i {
+              float: left;
+              color: red;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+      .final-cont {
+        float: left;
+        width: 100%;
+        padding: 10px;
+        border-top: 1px solid darken(#ccc, 10%);
+        .finalize {
+          float: right;
         }
       }
       &:before {
@@ -171,7 +233,7 @@ footer {
         height: 0;
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
-        border-bottom: 10px solid white;
+        border-bottom: 10px solid #ccc;
       }
     }
   }

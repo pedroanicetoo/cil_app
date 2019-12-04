@@ -6,7 +6,7 @@ Ciliatest::Application.routes.draw do
 
   namespace :site do
     get 'home', to: 'home#index' ##quando for ../home acessa /home/index
-    resources :orders, only: [:index, :new, :create]
+    resources :orders, only: [:index, :show, :new, :create]
     get 'clients', to: 'clients#index' ##quando for ../clients acessa /clients/index
     resources :clients
     get 'products', to: 'products#index' ##quando for ../clients acessa /clients/index
@@ -15,6 +15,7 @@ Ciliatest::Application.routes.draw do
       resources :carts, only: [:index, :show, :new, :create, :edit, :update]
       resources :demands, only: [:edit, :update, :destroy]
     end
+    resources :orders, only: [:index, :show, :new, :create]
   end
 
   # The priority is based upon order of creation:
