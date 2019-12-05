@@ -16,6 +16,7 @@ Ciliatest::Application.routes.draw do
       resources :carts_products, only: [:edit, :update, :destroy]
     end
     resources :orders, only: [:index, :show, :new, :create]
+    get 'checkouts', to: 'checkouts#index'
   end
 
   # The priority is based upon order of creation:

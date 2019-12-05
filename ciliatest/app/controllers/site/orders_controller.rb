@@ -10,28 +10,44 @@ class Site::OrdersController < SiteController
 
   def new
 
-    if current_client.cart.products.present? && current_client.cart.products.selling_products.present?
+    if has_products
+      # create order
       @final_order = Order.new
-      @order_products = current_client.cart.products
+      #set sold value from cart products to order
+      set_sold_products(current_client.cart.products)
+      #remove products solds from other clients cart
+      remove_products_carts(current_client.cart.products)
+      #include products sold on cart
+      @final_order.products = current_client.cart.products
+
+      if  @final_order.save
+        redirect_to site_home_path, notice: "O Pedido (#{@final_order.id}) foi computado com sucesso"
+      else
+        redirect_to request.referrer, alert: "O pedido (#{@final_order.id}) falhou"
+      end
+
+    else
+      redirect_to request.referrer, alert: "Carrinho Vazio!!!"
     end
 
-    # if @final_order.present?
-    #   #set products from cart to order
-    #   selling_products(@order_products)
-    #   @final_order.products = @order_products
-    #   if  @final_order.save
-    #     redirect_to site_home_path, notice: "O Pedido (#{@final_order.id}) foi computado com sucesso"
-    #   else
-    #     redirect_to request.referrer, notice: "O pedido (#{@final_order.id}) falhou"
-    #   end
-    # end
+
   end
 
   private
 
-  def selling_products(products)
+  def has_products
+    current_client.cart.products.present?
+  end
+
+  def set_sold_products(products)
     products.each do |p|
       p.sold = true
+    end
+  end
+
+  def remove_products_carts(products)
+    Client.all.reject{|c| c == current_client}.each do |client|
+      client.cart.products = client.cart.products - products
     end
   end
 

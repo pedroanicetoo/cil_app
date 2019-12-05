@@ -1,0 +1,96 @@
+// Place all the styles related to the site/checkouts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.order-cont {
+  float: left;
+  width: 100%;
+  background: #f1f1f1;
+  .order-title {
+    float: left;
+    width: 100%;
+    text-align: center;
+    h1 {
+      padding: 20px 0;
+      border-bottom: 1px solid darken(#ccc, 12%);
+      b {
+        border: 1px solid darken(#ccc, 36%);
+        border-radius: 3px;
+        padding: 5px;
+        background: #ccc;
+      }
+    }
+  }
+  .order-list {
+    float: left;
+    width: 100%;
+    .order-item {
+      float: left;
+      width: 100%;
+      padding: 10px 0;
+      border-bottom: 1px solid darken(#ccc, 12%);
+      .qtd, .code, picture, .name, .description, .price {
+        float: left;
+        margin: 0;
+        line-height: normal;
+      }
+      .qtd {
+        width: 5%;
+      }
+      .code {
+        width: 10%;
+      }
+      picture {
+        width: 20%;
+      }
+      .name {
+        width: 15%;
+      }
+      .description {
+        width: 35%;
+      }
+      .price {
+        width: 10%;
+      }
+      #remove-item, .blank-remove {
+        width: 5%;
+        float: right;
+        position: relative;
+        a.item-trash {
+          position: absolute;
+          right: 0;
+          top: -5px;
+          background: transparent;
+          border: none;
+          i {
+            float: right;
+            color: red;
+            transition: .3s all;
+            &:hover {
+              color: darken(red, 15%);
+            }
+          }
+          &:focus {
+            box-shadow: none;
+            outline: none;
+          }
+        }
+      }
+      &.title {
+        b, p, picture, small {
+          font-weight: bold;
+        }
+        small {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+  .order-check {
+    float: left;
+    width: 100%;
+    padding: 20px 0;
+    .pull-right {
+      float: right;
+    }
+  }
+}
