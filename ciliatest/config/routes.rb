@@ -13,7 +13,7 @@ Ciliatest::Application.routes.draw do
     resources :products
     namespace :home do
       resources :carts, only: [:index, :show, :new, :create, :edit, :update]
-      resources :demands, only: [:edit, :update, :destroy]
+      resources :carts_products, only: [:edit, :update, :destroy]
     end
     resources :orders, only: [:index, :show, :new, :create]
   end

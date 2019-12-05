@@ -9,11 +9,4 @@ class Site::Home::CartsController < Site::HomeController
 
   end
 
-
-  private
-  # Use callbacks to share common setup or constraints between actions.
-  def set_cart
-    @cart = Cart.find(params[:id])
-  end
-
 end

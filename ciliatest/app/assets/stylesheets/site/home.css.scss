@@ -30,6 +30,7 @@ body {
 
 #page-content-wrapper {
   min-width: 100vw;
+  background-color: #f1f1f1;
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -122,7 +123,7 @@ footer {
   .order-cont {
     float: right;
     position: relative;
-    margin: 5px 18px 0 7px;
+    margin: 3px 0px;
     .shop_car {
       float: right;
       background: none;
@@ -131,11 +132,14 @@ footer {
       float: left;
       padding: 0;
       width: 50px;
-      i {
-        float: left;
-      }
-      b {
-        float: left;
+      .o-c {
+        float: right;
+        i {
+          float: left;
+        }
+        b {
+          float: left;
+        }
       }
       &:focus {
         outline: none;
@@ -151,7 +155,7 @@ footer {
       height: auto;
       border: 1px solid #ccc;
       border-radius: 3px;
-      background: #ccc;
+      background: lighten(#ccc, 12%);
       &.show {
         display: block;
       }
@@ -185,13 +189,14 @@ footer {
       .body-cont {
         float: left;
         width: 100%;
-        padding: 0 10px;
+        padding: 0;
         border-top: 1px solid darken(#ccc, 10%);
         .cart-item {
           float: left;
           width: 100%;
-          padding: 10px 10px 10px 0;
+          padding: 10px 20px 10px 10px;
           position: relative;
+          border-bottom: 1px solid darken(#ccc, 15%);
           b {
             float: left;
           }
@@ -202,8 +207,8 @@ footer {
           }
           .remove {
             position: absolute;
-            right: 0;
-            top: 18px;
+            right: 10px;
+            top: 17px;
             background: none;
             border: none;
             padding: 0;
@@ -212,6 +217,14 @@ footer {
               color: red;
               font-size: 14px;
             }
+            &:focus {
+              outline: none;
+              box-shadow: none;
+            }
+          }
+          &:hover {
+            background-color: #ccc;
+            transition: .2s all;
           }
         }
       }
@@ -219,7 +232,6 @@ footer {
         float: left;
         width: 100%;
         padding: 10px;
-        border-top: 1px solid darken(#ccc, 10%);
         .finalize {
           float: right;
         }

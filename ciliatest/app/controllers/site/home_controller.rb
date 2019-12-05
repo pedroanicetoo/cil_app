@@ -6,7 +6,7 @@ class Site::HomeController < SiteController
 
 
     unless current_client.cart.nil?
-      @cart_count = (current_client.cart.demands).count
+      @cart_count = (current_client.cart.cart_products).count
       @products_on_cart = current_client.cart.products
     end
 
@@ -19,7 +19,7 @@ class Site::HomeController < SiteController
   private
     def products_show(page_qtd, params_search)
       @show = Product.paginate(:page => params[:page], :per_page => page_qtd)
-                     .find_by_name(params_search).valid_products
+                     .find_by_name(params_search).selling_products
     end
 
 end

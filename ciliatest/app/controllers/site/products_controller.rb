@@ -57,7 +57,7 @@ class Site::ProductsController < SiteController
 
   def products_show(page_qtd, params_search)
     @show = Product.paginate(:page => params[:page], :per_page => page_qtd).
-            find_by_name(params_search).valid_products
+            find_by_name(params_search).selling_products
   end
 
 end

@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20191203055149) do
+ActiveRecord::Schema.define(:version => 20191205000418) do
+
+  create_table "cart_products", :force => true do |t|
+    t.integer  "cart_id"
+    t.integer  "product_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "cart_products", ["cart_id"], :name => "index_cart_products_on_cart_id"
+  add_index "cart_products", ["product_id"], :name => "index_cart_products_on_product_id"
 
   create_table "carts", :force => true do |t|
     t.integer  "client_id"
@@ -40,16 +50,6 @@ ActiveRecord::Schema.define(:version => 20191203055149) do
 
   add_index "clients", ["email"], :name => "index_clients_on_email", :unique => true
   add_index "clients", ["reset_password_token"], :name => "index_clients_on_reset_password_token", :unique => true
-
-  create_table "demands", :force => true do |t|
-    t.integer  "product_id"
-    t.integer  "cart_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "demands", ["cart_id"], :name => "index_demands_on_cart_id"
-  add_index "demands", ["product_id"], :name => "index_demands_on_product_id"
 
   create_table "orders", :force => true do |t|
     t.integer  "client_id"

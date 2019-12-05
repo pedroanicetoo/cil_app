@@ -8,7 +8,7 @@
           <div class="cart-item">
             <b>1x <%= p.name %></b>
             <small><%= humanized_money_with_symbol p.price %></small>
-            <%= link_to site_home_demand_path(p), method: :delete, data: { confirm: "Tem certeza?" }, :class => "btn btn-danger btn-sm remove" do %>
+            <%= link_to site_home_carts_product_path(p), method: :delete, data: { confirm: "Tem certeza?" }, :class => "btn btn-danger btn-sm remove" do %>
               <i class="material-icons">close</i>
             <% end %>
           </div>
@@ -16,6 +16,6 @@
     <% end %>
   </div>
   <div class="final-cont">
-    <%= link_to "Finalizar Compra",  site_orders_path, :class => "btn btn-info btn-sm finalize" %>
+    <%= link_to "Finalizar Compra",  new_site_order_path, :class => "btn btn-info btn-sm finalize" %>
   </div>
 </div>

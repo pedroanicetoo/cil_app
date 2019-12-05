@@ -1,0 +1,38 @@
+<div class="order-cont">
+  <div class="container-fluid">
+    <div class="order-title">
+      <h1><b>Pedido</b></h1>
+    </div>
+    <div class="order-list">
+      <div class="order-item title">
+        <b class="qtd">QTD</b>
+        <p class="code">CÓDIGO</p>
+        <picture>IMAGEM</picture>
+        <p class="name">NOME</p>
+        <p class="description">DESCRIÇÃO</p>
+        <small class="price">PREÇO</small>
+        <div class="blank-remove"></div>
+      </div>
+      <% @order_products.each do |item| %>
+        <div class="order-item">
+          <b class="qtd">1x</b>
+          <p class="code"><%= item.id %></p>
+          <picture><%= image_tag item.picture(:thumb) %></picture>
+          <p class="name"><%= item.name %></p>
+          <p class="description"><%= item.description %></p>
+          <small class="price"><%= humanized_money_with_symbol item.price %></small>
+          <div id="remove-item">
+            <%= link_to site_home_carts_product_path(item), method: :delete, data: { confirm: "Tem certeza?" }, :class => "btn btn-sm btn-danger item-trash" do %>
+              <i class="material-icons">close</i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="order-check">
+      <%= link_to "Voltar as Compras", site_home_path, :class => "btn btn-sm btn-secondary" %>
+      <%= link_to "Finalizar Pedido", new_site_order_path, :class => "btn btn-sm btn-primary pull-right" %>
+    </div>
+
+  </div>
+</div>

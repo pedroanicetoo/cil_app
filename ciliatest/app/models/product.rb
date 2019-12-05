@@ -1,8 +1,8 @@
 class Product < ActiveRecord::Base
 
   belongs_to :order
-  has_many :demands
-  has_many :carts, through: :demands
+  has_many :cart_products
+  has_many :carts, through: :cart_products
 
   validates :name, presence: true
   validates :price, numericality: { greater_than: 0 }
@@ -25,7 +25,7 @@ class Product < ActiveRecord::Base
   #procurando produto por nome
   scope :find_by_name, -> ( name ) { where("name LIKE ?", "%#{name}%" ) }
   #produtos validos
-  scope :valid_products, -> { where( sold: false ) }
+  scope :selling_products, -> { where( sold: false ) }
 
   # example
   # scope :descending_order, -> (quantity = 10) { limit(quantity).order(created_at: :desc) }
