@@ -1,1 +1,4 @@
 <h1>MEUS PEDIDOS</h1>
+<% @client_orders.each do |order| %>
+  <b><%= order.products[0].name %></b>
+<% end %>
