@@ -1,20 +1,7 @@
 class Site::OrdersController < SiteController
 
   def index
-
-
-    @client_orders = []
-    current_client.orders.each do |order|
-      @client_orders << order
-    end
-
-
-    # @client_products = []
-    # @client_orders.each do |product|
-    #   @client_orders << product
-    # end
-
-
+    @client_orders = current_client.orders
   end
 
   def show
@@ -26,14 +13,15 @@ class Site::OrdersController < SiteController
       # create order
       @final_order = Order.new
       #set sold value from cart products to order
-      set_itens_sold(current_client.cart.products)
-      #remove products solds from other clients cart
-      drop_itens_other_carts(current_client.cart.products)
+      current_client.cart.products.collect { |p| p.sold = true }
+      #remove itens from other carts
+      drop_itens(current_client.cart.products)
       #set_order
       @final_order.products = current_client.cart.products
       @final_order.client = current_client
       if  @final_order.save
-        clear_cart(current_client.cart)
+        #clear current_user cart
+        current_client.cart.products.clear
         redirect_to site_home_path, notice: "O Pedido (#{@final_order.id}) foi computado com sucesso"
       else
         redirect_to request.referrer, alert: "O pedido (#{@final_order.id}) falhou"
@@ -49,20 +37,10 @@ class Site::OrdersController < SiteController
     current_client.cart.products.present?
   end
 
-  def set_itens_sold(products)
-    products.each do |p|
-      p.sold = true
-    end
-  end
-
-  def drop_itens_other_carts(products)
+  def drop_itens(products)
     Cart.all.reject{|c| c == current_client.cart }.each do |cart|
       cart.products = cart.products - products
     end
-  end
-
-  def clear_cart(cart)
-    current_client.cart.products.clear
   end
 
 end

@@ -265,12 +265,18 @@ footer {
       img {
         width: 100%;
         max-height: 150px;
+        margin: 0;
+        border-radius: 3px;
+        padding: 5px;
+        border: 1px solid #ccc;
       }
       .caption {
           .price-cont {
             float: left;
+            padding: 2px 5px;
             border-radius: 3px;
             border: 1px solid #ccc;
+            background-color: lighten(#ccc, 12%);
             margin: 10px 0 5px 0;
             b {
               margin: 0px 5px;

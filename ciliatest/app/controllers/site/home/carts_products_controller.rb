@@ -24,7 +24,7 @@ class Site::Home::CartsProductsController < Site::HomeController
     @cart_product[0].destroy
     respond_to do |format|
       format.html {
-        redirect_to request.referrer, notice: "Produto (#{@cart_product[0].product.name}) excluido do carrinho"
+        redirect_to request.referrer, alert: "Produto (#{@cart_product[0].product.name}) excluido do carrinho"
       }
       format.json {
         head :no_content

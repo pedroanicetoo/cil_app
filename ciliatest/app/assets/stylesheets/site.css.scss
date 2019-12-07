@@ -39,4 +39,61 @@
       }
     }
   }
+  #order-page {
+    .order-cont {
+      h1 {
+        border-bottom: 1px solid #ccc;
+        border-top: 1px solid #ccc;
+        margin: 10px 0;
+        padding: 10px 0;
+        line-height: normal;
+        width: 100%;
+        float: left;
+        b {
+          border: 1px solid darken(#ccc, 12%);
+          border-radius: 3px;
+          background-color: darken(#ccc, 6%);
+          padding: 5px 10px;
+          margin: 0;
+          font-size: 18px;
+          float: left;
+          width: auto;
+          text-decoration: underline;
+        }
+        small {
+          float: left;
+          width: auto;
+          font-size: 12px;
+          margin: 10px;
+        }
+      }
+      .order-product {
+        height: 300px !important;
+        width: 350px !important;
+        margin: 0 auto 20px auto;
+        .card-title {
+          float: left;
+          width: auto;
+        }
+        img {
+          margin: 10px;
+          border-radius: 3px;
+          padding: 5px;
+          border: 1px solid #ccc;
+        }
+        b {
+          float: right;
+          width: auto;
+          padding: 2px 5px;
+          border-radius: 3px;
+          border: 1px solid #ccc;
+          background-color: lighten(#ccc, 12%);
+        }
+        .card-text {
+          float: left;
+          width: 100%;
+        }
+      }
+    }
+  }
 }
