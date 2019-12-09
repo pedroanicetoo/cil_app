@@ -4,7 +4,7 @@
   </div>
   <div class="body-cont">
     <% if current_client.cart.present? %>
-        <% @products_on_cart.each do |p| %>
+        <% products_on_cart.each do |p| %>
           <div class="cart-item">
             <b>1x <%= p.name %></b>
             <small><%= humanized_money_with_symbol p.price %></small>

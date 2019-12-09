@@ -35,4 +35,12 @@ $(document).ready(function() {
   });
   console.log('toggle move')
 })
-
+// shop cart
+$(function () {
+  $(".shop_car").click(function(e) {
+    $("#shop_cont").addClass('show');
+  });
+  $("#close_cont").click(function(e) {
+    $("#shop_cont").removeClass('show');
+  });
+})
