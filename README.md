@@ -4,6 +4,15 @@
 
 ## Dependências do projeto
 
+## Task Geral para ambiente de desenvolvimento
+
+```
+rake dev:setup
+```
+
+### Usuário : admin@admin.com
+### senha : 123
+
 [Image Magic](https://imagemagick.org/index.php)
 
 ```
