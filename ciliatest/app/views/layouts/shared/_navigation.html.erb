@@ -11,30 +11,10 @@
           <button class="shop_car">
             <span class="o-c">
               <i class="material-icons">shopping_cart</i>
-              <b><%= @cart_count %></b>
+              <b><%= cart_count %></b>
             </span>
           </button>
-          <div id="shop_cont">
-            <div class="title-cont">
-             <b>Carrinho de compras:</b><button id="close_cont"><i class="material-icons">close</i></button>
-            </div>
-            <div class="body-cont">
-              <% if current_client.cart.present? %>
-                  <% products_on_cart.each do |p| %>
-                    <div class="cart-item">
-                      <b>1x <%= p.name %></b>
-                      <small><%= humanized_money_with_symbol p.price %></small>
-                      <%= link_to site_home_carts_product_path(p), method: :delete, data: { confirm: "Tem certeza?" }, :class => "btn btn-danger btn-sm remove" do %>
-                        <i class="material-icons">close</i>
-                      <% end %>
-                    </div>
-                  <% end %>
-              <% end %>
-            </div>
-            <div class="final-cont">
-              <%= link_to "Finalizar Compra",  site_checkouts_path, :class => "btn btn-info btn-sm finalize" %>
-            </div>
-          </div>
+          <%= render partial: 'layouts/shared/shopcart' %>
         </div>
         <%= link_to(current_client.email, '#', :class => "nav-name") %>
       <% else %>

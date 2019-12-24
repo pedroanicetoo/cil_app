@@ -1,23 +1,27 @@
 <div id="order-page" class="container-fluid">
   <div class="row">
-    <% @client_orders.collect do |order| %>
-      <div class="container-fluid order-cont">
-        <h1><b>Pedido:#<%= order.id %></b> <small><%= I18n.l(order.created_at, format: :long) %></small> </h1>
-        <div class="row">
-          <% order.products.collect do |product| %>
-            <div class="col-lg-6 col-sm-12">
-              <div class="card order-product">
-                <%= image_tag product.picture(:medium) %>
-                <div class="card-body">
-                  <h5 class="card-title"><%= product.name %></h5>
-                  <b><%= humanized_money_with_symbol product.price %></b>
-                  <p class="card-text"><%= truncate(product.description, length: 50) %></p>
+    <% if @client_orders.present? %>
+      <% @client_orders.collect do |order| %>
+        <div class="container-fluid order-cont">
+          <h1><b>Pedido:#<%= order.id %></b> <small><%= I18n.l(order.created_at, format: :long) %></small> </h1>
+          <div class="row">
+            <% order.products.collect do |product| %>
+              <div class="col-lg-6 col-sm-12">
+                <div class="card order-product">
+                  <%= image_tag product.picture(:medium) %>
+                  <div class="card-body">
+                    <h5 class="card-title"><%= product.name %></h5>
+                    <b><%= humanized_money_with_symbol product.price %></b>
+                    <p class="card-text"><%= truncate(product.description, length: 50) %></p>
+                  </div>
                 </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
+    <% else %>
+    <h1> Sem produtos computados! </h1>
     <% end %>
   </div>
 </div>

@@ -23,6 +23,18 @@
     <div class="row">
       <div class="col-xs-3">
         <div class="form-group">
+          <%= f.label :picture %> <br>
+          <% if @product.picture.present? %>
+            <%= image_tag @product.picture(:medium), :class => "img-thumbnail" %> <br> <br>
+          <% end %>
+          <%= f.file_field :picture, :class => "btn btn-default" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-3">
+        <div class="form-group">
           <%= f.label :price %>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
